@@ -1,0 +1,41 @@
+{
+  "name": "eslint-config-zzjtnb",
+  "version": "0.0.0",
+  "description": "ESLint configuration aimed to have balanced aspects.",
+  "author": "zzjtnb(https://github.com/zzjtnb)",
+  "license": "MIT",
+  "homepage": "https://github.com/zzjtnb/eslint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzjtnb/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zzjtnb/eslint-config/issues"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "basic.js",
+    "ts.js",
+    "vue-ts.js",
+    "vue.js"
+  ],
+  "scripts": {
+    "lint": "eslint . --config=index.js --fix"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "dependencies": {
+    "eslint-config-zzjtnb-basic": "workspace:*",
+    "eslint-config-zzjtnb-ts": "workspace:*",
+    "eslint-config-zzjtnb-vue": "workspace:*"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0"
+  }
+}
