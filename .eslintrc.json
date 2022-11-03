@@ -1,0 +1,11 @@
+{
+  "extends": "zzjtnb"
+  // "extends": "zzjtnb/basic"
+  // "extends": "zzjtnb/ts"
+  // "extends": "zzjtnb/vue"
+  // "extends": "zzjtnb/vue-ts"
+  // "extends": "zzjtnb-basic"
+  // "extends": "zzjtnb-ts"
+  // "extends": "zzjtnb-vue"
+  // "extends": "zzjtnb-vue/ts"
+}

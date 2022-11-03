@@ -1,0 +1,38 @@
+{
+  "name": "eslint-config-zzjtnb-vue",
+  "version": "0.0.0",
+  "description": "ESLint configuration for javascript typescript json vue html markdown",
+  "author": "zzjtnb(https://github.com/zzjtnb)",
+  "license": "MIT",
+  "homepage": "https://github.com/zzjtnb/eslint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzjtnb/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zzjtnb/eslint-config/issues"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "ts.js"
+  ],
+  "scripts": {
+    "lint": "eslint . --config=index.js --fix"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "dependencies": {
+    "eslint-config-zzjtnb-basic": "workspace:*",
+    "eslint-config-zzjtnb-ts": "workspace:*",
+    "eslint-plugin-vue": "^9.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0"
+  }
+}
