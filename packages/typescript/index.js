@@ -2,9 +2,9 @@ const basic = require('eslint-config-zzjtnb-basic')
 
 module.exports = {
   extends: [
-    'eslint-config-zzjtnb-basic',
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
+    'eslint-config-zzjtnb-basic',
   ],
   settings: {
     'import/resolver': {

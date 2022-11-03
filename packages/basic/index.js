@@ -1,9 +1,13 @@
 module.exports = {
+  reportUnusedDisableDirectives: true,
   env: {
     browser: true,
     node: true,
   },
-  reportUnusedDisableDirectives: true,
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
   extends: [
     'standard',
     'plugin:import/recommended',
@@ -184,6 +188,7 @@ module.exports = {
     'import/no-mutable-exports': 'error',
     'import/no-unresolved': 'off',
     'import/no-absolute-path': 'off',
+    'import/named': 'off',
 
     // Common
     'semi': ['error', 'never'],
@@ -206,6 +211,7 @@ module.exports = {
     'func-call-spacing': ['off', 'never'],
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
     'indent': ['error', 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
+
     'no-restricted-syntax': [
       'error',
       'DebuggerStatement',
