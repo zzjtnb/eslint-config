@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-zzjtnb-vue",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "description": "ESLint configuration for javascript typescript json vue html markdown",
   "author": "zzjtnb(https://github.com/zzjtnb)",
   "license": "MIT",
@@ -19,7 +19,6 @@
   "main": "index.js",
   "files": [
     "index.js",
-
     "ts.js"
   ],
   "scripts": {
