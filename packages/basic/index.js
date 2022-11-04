@@ -5,6 +5,12 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    es2022: true,
+  },
+  parserOptions: {
+    // 支持的ES语法版本,默认为5.注意只是语法,不包括ES的全局变量,全局变量需要在env选项中进行定义.
+    ecmaVersion: 2022,
+    sourceType: 'module',
   },
   extends: [
     'standard',

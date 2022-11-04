@@ -4,10 +4,6 @@ module.exports = {
     {
       files: ['*.vue'],
       parser: 'vue-eslint-parser',
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-      },
       rules: {
         'no-unused-vars': 'off',
         'no-undef': 'off',
