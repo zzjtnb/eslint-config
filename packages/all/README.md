@@ -17,30 +17,37 @@
 pnpm add -D eslint eslint-config-zzjtnb
 ```
 
->.eslintrc.json
+>.eslintrc.cjs
 
 For all:
 
-```json
-{
-  "extends": ["zzjtnb"]
+```js
+module.exports = {
+  extends: [
+    'zzjtnb',
+  ],
 }
 ```
 
 For Vue and Typescript:
 
-```json
-{
-  "extends": ["zzjtnb/vue-ts"]
+```js
+module.exports = {
+  extends: [
+    'zzjtnb/vue/ts',
+  ],
 }
 ```
 
 For Vue and JavaScript:
 
-```json
-{
-  "extends": ["zzjtnb/vue"]
+```js
+module.exports = {
+  extends: [
+    'zzjtnb/vue',
+  ],
 }
+
 ```
 
 > You don't need `.eslintignore` normally as it has been provided by the preset.
@@ -88,7 +95,7 @@ for vue js
 - `zzjtnb/vue`
 
 for vue ts
-- `zzjtnb/vue-ts`
+- `zzjtnb/vue/ts`
 
 for js|html|yaml|json|jsonc|md:
 - `zzjtnb-basic`
@@ -99,18 +106,21 @@ for typescript:
 for vue js
 - `zzjtnb-vue`
 
-for vue ts
-- `zzjtnb-vue/ts`
-
 All (`zzjtnb`) includes:
 
-```json
-{
-  "extends": [
-    "zzjtnb-basic",
-    "zzjtnb-ts",
-    "zzjtnb-vue"
-  ]
+```js
+/* eslint-env node */
+module.exports = {
+  extends: [
+    'zzjtnb',
+    // 'zzjtnb/basic',
+    // "zzjtnb/ts"
+    // 'zzjtnb/vue',
+    // 'zzjtnb/vue/ts',
+    // "zzjtnb-basic"
+    // "zzjtnb-ts"
+    // 'zzjtnb-vue',
+  ],
 }
 ```
 

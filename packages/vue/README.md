@@ -17,11 +17,13 @@ ESLint suggestions configuration aimed to have balanced aspects. A part of [esli
 pnpm add -D eslint-config-zzjtnb-vue
 ```
 
->.eslintrc.json
+>.eslintrc.cjs
 
-```json
-{
-  "extends": ["eslint-config-zzjtnb-vue"]
+```js
+module.exports = {
+  extends: [
+    'zzjtnb-vue',
+  ],
 }
 ```
 

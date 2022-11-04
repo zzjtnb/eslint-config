@@ -21,8 +21,8 @@
     "index.js",
     "basic.js",
     "ts.js",
-    "vue-ts.js",
-    "vue.js"
+    "vue/index.js",
+    "vue/ts.js"
   ],
   "scripts": {
     "lint": "eslint . --config=index.js --fix"

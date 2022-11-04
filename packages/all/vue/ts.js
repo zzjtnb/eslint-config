@@ -1,3 +1,4 @@
+// console.log('\x1B[36;1m zzjtnb/vue/ts')
 module.exports = {
   overrides: [
     {
@@ -9,13 +10,12 @@ module.exports = {
       rules: {
         'no-unused-vars': 'off',
         'no-undef': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
+
       },
     },
   ],
   extends: [
-    'eslint-config-zzjtnb-vue',
     'eslint-config-zzjtnb-ts',
+    'eslint-config-zzjtnb-vue',
   ],
-
 }

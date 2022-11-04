@@ -19,6 +19,7 @@
   "main": "index.js",
   "files": [
     "index.js",
+
     "ts.js"
   ],
   "scripts": {
@@ -29,7 +30,6 @@
   },
   "dependencies": {
     "eslint-config-zzjtnb-basic": "workspace:*",
-    "eslint-config-zzjtnb-ts": "workspace:*",
     "eslint-plugin-vue": "^9.7.0"
   },
   "devDependencies": {

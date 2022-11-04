@@ -124,18 +124,22 @@ dependencies 中的 key 是 packages 文件夹下每个文件夹中的 package.j
 
 对应 eslint 配置
 
-```bash
-#.eslintrc.json
-"extends": "@zzjtnb"
-"extends": "@zzjtnb/basic"
-"extends": "@zzjtnb/ts",
-"extends": "@zzjtnb/vue",
+```js
+// .eslintrc.cjs
+module.exports = {
+  extends: [
+    '@zzjtnb',
+    '@zzjtnb/basic',
+    '@zzjtnb/ts',
+    '@zzjtnb/vue',
+  ],
+}
 ```
 
 #### 第二种
 
 ```js
-// packages/all/vue-ts.js
+// packages/all/vue/ts.js
 module.exports = {
   extends: [
     // package.json 中 name:@xxx/eslint-config 这种是作用域
@@ -151,12 +155,16 @@ module.exports = {
 
 对应 eslint 配置
 
-```bash
-#.eslintrc.json
-# vue-ts是packages/all下面的文件名,
-# 需要在#packages/all/package.json中的中写入 files:["vue-ts.js"]
-# 不能省略@zzjtnb/eslint-config
-"extends": "@zzjtnb/eslint-config/vue-ts"
+```js
+// .eslintrc.cjs
+// vue-ts是packages/all下面的文件名,
+// 需要在#packages/all/package.json中的中写入 files:["vue-ts.js"]
+// 不能省略@zzjtnb/eslint-config
+module.exports = {
+  extends: [
+    '@zzjtnb/eslint-config/vue-ts',
+  ],
+}
 ```
 
 发布命令
@@ -169,14 +177,22 @@ pnpm -r publish --access public
 
 #### 默认的
 
-```bash
-#.eslintrc.json
-"extends": "zzjtnb" #对应packages/all/package.json
-#对应packages/all/basic|ts|vue|vue|ts*.js,写入packages/all/package.json中的files
-# "files": [ "index.js","basic.js","ts.js","vue-ts.js","vue.js"]
-"extends": "zzjtnb-basic"
-"extends": "zzjtnb-ts",
-"extends": "zzjtnb-vue",
+```js
+// .eslintrc.cjs
+module.exports = {
+  extends: [
+    // 对应packages/all/basic|ts|vue/index|vue/ts*.js,写入packages/all/package.json中的files
+    // "files": [ "index.js","basic.js","ts.js","vue/ts.js","vue/index.js"]
+    'zzjtnb',
+    'zzjtnb-basic',
+    'zzjtnb-ts',
+    'zzjtnb-vue',
+    'zzjtnb/basic',
+    'zzjtnb/ts',
+    'zzjtnb/vue',
+    'zzjtnb/vue/ts',
+  ],
+}
 ```
 
 ```bash
@@ -197,56 +213,61 @@ module.exports = {
      * packages/basic/package.json
      * "name": "eslint-config-zzjtnb-basic",
      */
-    'zzjtnb-basic',
+    'eslint-config-zzjtnb-basic',
   ],
 }
 // packages/all/ts.js
 module.exports = {
   extends: [
     // 同 packages/all/basic.js
-    'zzjtnb-basic',
+    'eslint-config-zzjtnb-basic',
     /**
      * 对应
      * packages/typescript/package.json
      * "name": "eslint-config-zzjtnb-ts",
      */
-    'zzjtnb-ts',
+    'eslint-config-zzjtnb-ts',
   ],
 }
-// packages/all/vue.js
+// packages/all/vue/index.js
 module.exports = {
   extends: [
-    // 同 packages/all/basic.js
-    'zzjtnb-basic',
     /**
      * 对应
      * packages/vue/package.json
      * "name": "@zzjtnb/eslint-config-vue",
      */
-    'zzjtnb-vue',
+    'eslint-config-zzjtnb-vue',
   ],
 }
-// packages/all/vue-ts.js
+// packages/all/vue/ts.js
 module.exports = {
   extends: [
     // 这两个对应上面的
-    'zzjtnb-ts',
-    'zzjtnb-vue',
+    'eslint-config-zzjtnb-ts',
+    'eslint-config-zzjtnb-vue',
   ],
 }
 ```
 
 对应 eslint 配置
 
-```bash
-#.eslintrc.json
-"extends": "zzjtnb" #对应packages/all/package.json
-#对应packages/all/basic|ts|vue|vue|ts*.js,写入packages/all/package.json中的files
-# "files": [ "index.js","basic.js","ts.js","vue-ts.js","vue.js"]
-"extends": "zzjtnb/basic"
-"extends": "zzjtnb/ts",
-"extends": "zzjtnb/vue",
-"extends": "zzjtnb/vue-ts",
+```js
+// .eslintrc.cjs
+module.exports = {
+  extends: [
+    // 对应packages/all/basic|ts|vue/index|vue/ts*.js,写入packages/all/package.json中的files
+    // "files": [ "index.js","basic.js","ts.js","vue/ts.js","vue/index.js"]
+    'zzjtnb',
+    'zzjtnb-basic',
+    'zzjtnb-ts',
+    'zzjtnb-vue',
+    'zzjtnb/basic',
+    'zzjtnb/ts',
+    'zzjtnb/vue',
+    'zzjtnb/vue/ts',
+  ],
+}
 ```
 
 发布命令
@@ -277,3 +298,16 @@ mklink
 mklink /d .\\README.md .\\packages\\all\\README.md
 ```
 删除的话直接删除 Link(.\\README.md)
+
+
+查看所有配置
+```bash
+# Print the configuration for the given file
+# 打印给定文件的配置
+eslint --print-config file.js > eslintconifg.json
+```
+```bash
+eslint --print-config file.js > ./test/config/js.json
+eslint --print-config file.ts > ./test/config/ts.json
+eslint --print-config file.vue > ./test/config/vue.json
+```

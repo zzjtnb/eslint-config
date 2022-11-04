@@ -1,12 +1,10 @@
+// console.log('eslint-config-zzjtnb-basic')
 module.exports = {
+  // 报告未使用的 eslint-disable 注释
   reportUnusedDisableDirectives: true,
   env: {
     browser: true,
     node: true,
-  },
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
   },
   extends: [
     'standard',
@@ -33,7 +31,6 @@ module.exports = {
     '!.github',
     '!.vitepress',
     '!.vscode',
-    '!.husky',
   ],
   plugins: [
     'html',
@@ -182,43 +179,63 @@ module.exports = {
     },
   ],
   rules: {
-    // import
-    'import/order': 'error',
-    'import/first': 'error',
-    'import/no-mutable-exports': 'error',
-    'import/no-unresolved': 'off',
-    'import/no-absolute-path': 'off',
-    'import/named': 'off',
 
     // Common
-    'semi': ['error', 'never'],
+    // 'no-debugger': 'error',
+    // 'no-alert': 'warn',
+    // 'no-console': ['error', { allow: ['warn', 'error'] }],
+    // 打包时禁止debugger
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // 打包时禁止console
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // 打包时禁止alert
+    'no-alert': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+
+    // Override JS
+    // 'indent': ['error', 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
+    'indent': 'off',
+    // 'no-unused-vars': 'off',
+    'no-redeclare': 'off',
+    // 'no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
+    'no-use-before-define': 'off',
+    // 'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+    'brace-style': 'off',
+    // 'comma-dangle': ['error', 'always-multiline'],
+    'comma-dangle': 'off',
+    // 'object-curly-spacing': ['error', 'always'],
+    'object-curly-spacing': 'off',
+    // 'semi': ['error', 'never'],
+    'semi': 'off',
+    // 'quotes': ['error', 'single'],
+    'quotes': 'off',
+    // 'comma-spacing': ['error', { before: false, after: true }],
+    'comma-spacing': 'off',
+    'no-useless-constructor': 'off',
+    'space-infix-ops': 'off',
+    'keyword-spacing': 'off',
+    'no-extra-parens': 'off',
+    'no-dupe-class-members': 'off',
+    'no-loss-of-precision': 'off',
+    'lines-between-class-members': 'off',
+
     'curly': ['error', 'multi-or-nest', 'consistent'],
-    'quotes': ['error', 'single'],
     'quote-props': ['error', 'consistent-as-needed'],
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
     'no-param-reassign': 'off',
     'array-bracket-spacing': ['error', 'never'],
-    'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
     'block-spacing': ['error', 'always'],
     'camelcase': 'off',
-    'comma-spacing': ['error', { before: false, after: true }],
     'comma-style': ['error', 'last'],
-    'comma-dangle': ['error', 'always-multiline'],
     'no-constant-condition': 'warn',
-    'no-debugger': 'error',
-    'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-cond-assign': ['error', 'always'],
     'func-call-spacing': ['off', 'never'],
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
-    'indent': ['error', 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
-
     'no-restricted-syntax': [
       'error',
       'DebuggerStatement',
       'LabeledStatement',
       'WithStatement',
     ],
-    'object-curly-spacing': ['error', 'always'],
     'no-return-await': 'off',
     'space-before-function-paren': [
       'error',
@@ -229,6 +246,7 @@ module.exports = {
       },
     ],
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 1 }],
+    'eslint-comments/disable-enable-pair': 'off',
 
     // es6
     'no-var': 'error',
@@ -279,7 +297,6 @@ module.exports = {
     'consistent-return': 'off',
     'complexity': ['off', 11],
     'eqeqeq': ['error', 'smart'],
-    'no-alert': 'warn',
     'no-case-declarations': 'error',
     'no-multi-spaces': 'error',
     'no-multi-str': 'error',
@@ -315,13 +332,20 @@ module.exports = {
     // Use new when throwing error
     'unicorn/throw-new-error': 'error',
 
-    'no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
-    'eslint-comments/disable-enable-pair': 'off',
+    /**
+     * import
+     */
+
+    'import/order': 'error',
+    'import/first': 'error',
+    'import/no-mutable-exports': 'error',
+    'import/no-unresolved': 'off',
+    'import/no-absolute-path': 'off',
     'import/no-named-as-default-member': 'off',
     'import/no-named-as-default': 'off',
     'import/namespace': 'off',
+    'import/named': 'off',
     'n/no-callback-literal': 'off',
-
     'sort-imports': [
       'error',
       {

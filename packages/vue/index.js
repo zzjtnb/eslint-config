@@ -1,9 +1,30 @@
+// console.log('eslint-config-zzjtnb-vue')
 module.exports = {
+  overrides: [
+    {
+      files: ['*.vue'],
+      parser: 'vue-eslint-parser',
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+      rules: {
+        'no-unused-vars': 'off',
+        'no-undef': 'off',
+      },
+    },
+  ],
   extends: [
     'plugin:vue/vue3-recommended',
     'eslint-config-zzjtnb-basic',
   ],
-
+  /**
+   * extends 直接用plugin冒号的时候 ,没有另外plugins去指定vue ,加载对应解析能力:
+   * 意思是plugin:vue/recommended 这种写法既加载了校验能力 又加载了校验规则
+   */
+  // plugins: [
+  //   'vue',
+  // ],
   rules: {
     'vue/max-attributes-per-line': 'off',
     'vue/no-v-html': 'off',
