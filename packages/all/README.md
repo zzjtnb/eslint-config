@@ -69,7 +69,7 @@ For example:
 
 Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and create `.vscode/settings.json`
 
-```json
+```jsonc
 {
   "prettier.enable": false,
   "editor.formatOnSave": false,
@@ -129,6 +129,9 @@ module.exports = {
 - [eslint-config-zzjtnb-basic](https://www.npmjs.com/package/eslint-config-zzjtnb-basic)
 - [eslint-config-zzjtnb-ts](https://www.npmjs.com/package/eslint-config-zzjtnb-ts)
 - [eslint-config-zzjtnb-vue](https://www.npmjs.com/package/eslint-config-zzjtnb-vue)
+
+- [stylelint-config-zzjtnb](https://www.npmjs.com/package/stylelint-config-zzjtnb)
+
 
 ## License
 

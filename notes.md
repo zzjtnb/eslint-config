@@ -295,9 +295,9 @@ mklink
 ```
 创建目录符号链接.默认为文件
 ```bash
-mklink /d .\\README.md .\\packages\\all\\README.md
+mklink /d .\README.md .\packages\all\README.md
 ```
-删除的话直接删除 Link(.\\README.md)
+删除的话直接删除 Link(.\README.md)
 
 
 查看所有配置
@@ -307,7 +307,7 @@ mklink /d .\\README.md .\\packages\\all\\README.md
 eslint --print-config file.js > eslintconifg.json
 ```
 ```bash
-eslint --print-config file.js > ./test/config/js.json
-eslint --print-config file.ts > ./test/config/ts.json
-eslint --print-config file.vue > ./test/config/vue.json
+eslint --print-config file.js > ./tests/config/js.json
+eslint --print-config file.ts > ./tests/config/ts.json
+eslint --print-config file.vue > ./tests/config/vue.json
 ```
