@@ -10,9 +10,54 @@ module.exports = {
       node: { extensions: ['.ts', '.tsx', '.d.ts'] },
     },
   },
+  overrides: [
+    {
+      files: ['*.ts'],
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+      },
+    },
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+    {
+      files: ['*.vue', '*.html'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': 'off',
+      },
+    },
+    {
+      files: ['*.d.ts'],
+      rules: {
+        'import/no-duplicates': 'off',
+      },
+    },
+    {
+      files: ['*.test.ts', '*.spec.ts'],
+      rules: {
+        'no-unused-expressions': 'off',
+        'no-only-tests/no-only-tests': 'error',
+      },
+    },
+    {
+      // Code blocks in markdown file
+      files: ['**/*.md/*.*'],
+      rules: {
+        '@typescript-eslint/no-redeclare': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/no-use-before-define': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/comma-dangle': 'off',
+      },
+    },
+  ],
   rules: {
     'import/named': 'off',
     // Override JS
+    'no-undef': 'off',
     'no-useless-constructor': 'off',
     'indent': 'off',
     'no-unused-vars': 'off',
@@ -131,48 +176,4 @@ module.exports = {
     '@typescript-eslint/no-namespace': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
   },
-  overrides: [
-    {
-      files: ['*.ts'],
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-      },
-    },
-    {
-      files: ['*.js'],
-      rules: {
-        '@typescript-eslint/no-var-requires': 'off',
-      },
-    },
-    {
-      files: ['*.vue', '*.html'],
-      rules: {
-        '@typescript-eslint/no-unused-vars': 'off',
-      },
-    },
-    {
-      files: ['*.d.ts'],
-      rules: {
-        'import/no-duplicates': 'off',
-      },
-    },
-    {
-      files: ['*.test.ts', '*.spec.ts'],
-      rules: {
-        'no-unused-expressions': 'off',
-        'no-only-tests/no-only-tests': 'error',
-      },
-    },
-    {
-      // Code blocks in markdown file
-      files: ['**/*.md/*.*'],
-      rules: {
-        '@typescript-eslint/no-redeclare': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/no-use-before-define': 'off',
-        '@typescript-eslint/no-var-requires': 'off',
-        '@typescript-eslint/comma-dangle': 'off',
-      },
-    },
-  ],
 }

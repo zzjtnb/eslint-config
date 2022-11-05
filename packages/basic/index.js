@@ -45,7 +45,6 @@ module.exports = {
     'unicorn',
     'no-only-tests',
   ],
-
   settings: {
     'import/resolver': {
       node: { extensions: ['.js', '.jsx', '.mjs'] },
@@ -171,19 +170,23 @@ module.exports = {
     },
   ],
   rules: {
-    // 打包时禁止debugger
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // 打包时禁止console
-    'no-console': process.env.NODE_ENV === 'production' ? ['error', { allow: ['warn', 'error'] }] : 'off',
-    // 打包时禁止alert
-    'no-alert': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // // 打包时禁止debugger
+    // 'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // // 打包时禁止console
+    // 'no-console': process.env.NODE_ENV === 'production' ? ['error', { allow: ['warn', 'error'] }] : 'off',
+    // // 打包时禁止alert
+    // 'no-alert': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+
+    'no-debugger': 'error',
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-alert': 'warn',
 
     // Common
     'semi': ['error', 'never'],
     'curly': ['error', 'multi-or-nest', 'consistent'],
     'quotes': ['error', 'single'],
     'quote-props': ['error', 'consistent-as-needed'],
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
     'no-param-reassign': 'off',
     'array-bracket-spacing': ['error', 'never'],
     'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],

@@ -1,2 +1,2 @@
-const msg = 'hi'
-console.log(msg)
+// const msg = 'hi'
+// console.log(msg)
