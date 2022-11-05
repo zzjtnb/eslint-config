@@ -39,6 +39,9 @@ module.exports = {
     '!.github',
     '!.vitepress',
     '!.vscode',
+    '!.commitlintrc.cjs',
+    '!.stylelintrc.cjs',
+    '!.eslintrc.cjs',
   ],
   plugins: [
     'html',
