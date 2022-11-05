@@ -18,7 +18,7 @@ module.exports = {
       },
     },
     {
-      files: ['*.js'],
+      files: ['*.js', '*.cjs'],
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
       },
@@ -77,8 +77,7 @@ module.exports = {
     'no-dupe-class-members': 'off',
     'no-loss-of-precision': 'off',
     'lines-between-class-members': 'off',
-
-    // Override JS
+    // Override TS
     '@typescript-eslint/indent': ['error', 2, {
       SwitchCase: 1,
       VariableDeclarator: 1,
