@@ -21,14 +21,13 @@
     "index.js",
     "basic.js",
     "ts.js",
-    "vue/index.js",
-    "vue/ts.js"
+    "vue.js"
   ],
   "scripts": {
     "lint": "eslint . --config=index.js --fix"
   },
   "peerDependencies": {
-    "eslint": ">=7.4.0"
+    "eslint": "^8.26.0"
   },
   "dependencies": {
     "eslint-config-zzjtnb-basic": "workspace:*",

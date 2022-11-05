@@ -4,7 +4,7 @@ ESLint suggestions configuration aimed to have balanced aspects. A part of [esli
 
 - Single quotes, no semi
 - Auto fix for formatting (aimed to be used standalone without Prettier)
-- Designed to work not with TypeScript, Vue out-of-box
+- Designed to work with TypeScript, JavaScript,Vue out-of-box
 - Lint also for json, yaml, markdown
 - Sorted imports, dangling commas for cleaner commit diff
 - Reasonable defaults, best practices, only one-line of config
@@ -60,6 +60,8 @@ Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?it
 
 - [eslint-config-zzjtnb-basic](https://www.npmjs.com/package/eslint-config-zzjtnb-basic)
 - [eslint-config-zzjtnb-ts](https://www.npmjs.com/package/eslint-config-zzjtnb-ts)
+
+- [stylelint-config-zzjtnb](https://www.npmjs.com/package/stylelint-config-zzjtnb)
 
 ## License
 

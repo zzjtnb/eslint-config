@@ -18,17 +18,16 @@
   ],
   "main": "index.js",
   "files": [
-    "index.js",
-    "ts.js"
+    "index.js"
   ],
   "scripts": {
     "lint": "eslint . --config=index.js --fix"
   },
   "peerDependencies": {
-    "eslint": ">=7.4.0"
+    "eslint": "^8.26.0"
   },
   "dependencies": {
-    "eslint-config-zzjtnb-basic": "workspace:*",
+    "eslint-config-zzjtnb-ts": "workspace:*",
     "eslint-plugin-vue": "^9.7.0"
   },
   "devDependencies": {

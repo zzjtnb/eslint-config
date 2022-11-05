@@ -4,6 +4,18 @@ module.exports = {
     {
       files: ['*.vue'],
       parser: 'vue-eslint-parser',
+      parserOptions: {
+        parser: {
+          // Script parser for `<script>`
+          'js': 'espree',
+          // Script parser for `<script lang="ts">`
+          'ts': '@typescript-eslint/parser',
+          // Script parser for vue directives (e.g. `v-if=` or `:attribute=`)
+          // and vue interpolations (e.g. `{{variable}}`).
+          // If not specified, the parser determined by `<script lang ="...">` is used.
+          '<template>': 'espree',
+        },
+      },
       rules: {
         'no-unused-vars': 'off',
         'no-undef': 'off',
@@ -12,7 +24,7 @@ module.exports = {
   ],
   extends: [
     'plugin:vue/vue3-recommended',
-    'eslint-config-zzjtnb-basic',
+    'eslint-config-zzjtnb-ts',
   ],
   /**
    * extends 直接用plugin冒号的时候 ,没有另外plugins去指定vue ,加载对应解析能力:

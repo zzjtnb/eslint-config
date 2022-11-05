@@ -61,6 +61,8 @@ Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?it
 - [eslint-config-zzjtnb-basic](https://www.npmjs.com/package/eslint-config-zzjtnb-basic)
 - [eslint-config-zzjtnb-vue](https://www.npmjs.com/package/eslint-config-zzjtnb-vue)
 
+- [stylelint-config-zzjtnb](https://www.npmjs.com/package/stylelint-config-zzjtnb)
+
 ## License
 
 [MIT](./LICENSE) License &copy; 2022 [争逐](https://zzjtnb.com)

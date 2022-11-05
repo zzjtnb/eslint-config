@@ -7,6 +7,8 @@ module.exports = {
     node: true,
     es2022: true,
   },
+  // 默认解释器
+  // parser: 'espree',
   parserOptions: {
     // 支持的ES语法版本,默认为5.注意只是语法,不包括ES的全局变量,全局变量需要在env选项中进行定义.
     ecmaVersion: 2022,
@@ -43,9 +45,10 @@ module.exports = {
     'unicorn',
     'no-only-tests',
   ],
+
   settings: {
     'import/resolver': {
-      node: { extensions: ['.js', '.mjs'] },
+      node: { extensions: ['.js', '.jsx', '.mjs'] },
     },
   },
   overrides: [
@@ -141,25 +144,13 @@ module.exports = {
       },
     },
     {
-      files: ['*.d.ts'],
-      rules: {
-        'import/no-duplicates': 'off',
-      },
-    },
-    {
-      files: ['*.js'],
-      rules: {
-        '@typescript-eslint/no-var-requires': 'off',
-      },
-    },
-    {
       files: ['scripts/**/*.*', 'cli.*'],
       rules: {
         'no-console': 'off',
       },
     },
     {
-      files: ['*.test.ts', '*.test.js', '*.spec.ts', '*.spec.js'],
+      files: ['*.test.js', '*.spec.js'],
       rules: {
         'no-unused-expressions': 'off',
         'no-only-tests/no-only-tests': 'error',
@@ -169,11 +160,6 @@ module.exports = {
       // Code blocks in markdown file
       files: ['**/*.md/*.*'],
       rules: {
-        '@typescript-eslint/no-redeclare': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/no-use-before-define': 'off',
-        '@typescript-eslint/no-var-requires': 'off',
-        '@typescript-eslint/comma-dangle': 'off',
         'import/no-unresolved': 'off',
         'no-alert': 'off',
         'no-console': 'off',
@@ -185,63 +171,39 @@ module.exports = {
     },
   ],
   rules: {
-
-    // Common
-    // 'no-debugger': 'error',
-    // 'no-alert': 'warn',
-    // 'no-console': ['error', { allow: ['warn', 'error'] }],
     // 打包时禁止debugger
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // 打包时禁止console
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? ['error', { allow: ['warn', 'error'] }] : 'off',
     // 打包时禁止alert
     'no-alert': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 
-    // Override JS
-    // 'indent': ['error', 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
-    'indent': 'off',
-    // 'no-unused-vars': 'off',
-    'no-redeclare': 'off',
-    // 'no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
-    'no-use-before-define': 'off',
-    // 'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
-    'brace-style': 'off',
-    // 'comma-dangle': ['error', 'always-multiline'],
-    'comma-dangle': 'off',
-    // 'object-curly-spacing': ['error', 'always'],
-    'object-curly-spacing': 'off',
-    // 'semi': ['error', 'never'],
-    'semi': 'off',
-    // 'quotes': ['error', 'single'],
-    'quotes': 'off',
-    // 'comma-spacing': ['error', { before: false, after: true }],
-    'comma-spacing': 'off',
-    'no-useless-constructor': 'off',
-    'space-infix-ops': 'off',
-    'keyword-spacing': 'off',
-    'no-extra-parens': 'off',
-    'no-dupe-class-members': 'off',
-    'no-loss-of-precision': 'off',
-    'lines-between-class-members': 'off',
-
+    // Common
+    'semi': ['error', 'never'],
     'curly': ['error', 'multi-or-nest', 'consistent'],
+    'quotes': ['error', 'single'],
     'quote-props': ['error', 'consistent-as-needed'],
-    'no-unused-vars': 'off',
+    'no-unused-vars': 'warn',
     'no-param-reassign': 'off',
     'array-bracket-spacing': ['error', 'never'],
+    'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
     'block-spacing': ['error', 'always'],
     'camelcase': 'off',
+    'comma-spacing': ['error', { before: false, after: true }],
     'comma-style': ['error', 'last'],
+    'comma-dangle': ['error', 'always-multiline'],
     'no-constant-condition': 'warn',
     'no-cond-assign': ['error', 'always'],
     'func-call-spacing': ['off', 'never'],
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
+    'indent': ['error', 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
     'no-restricted-syntax': [
       'error',
       'DebuggerStatement',
       'LabeledStatement',
       'WithStatement',
     ],
+    'object-curly-spacing': ['error', 'always'],
     'no-return-await': 'off',
     'space-before-function-paren': [
       'error',
@@ -252,7 +214,6 @@ module.exports = {
       },
     ],
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 1 }],
-    'eslint-comments/disable-enable-pair': 'off',
 
     // es6
     'no-var': 'error',
@@ -313,6 +274,9 @@ module.exports = {
     'require-await': 'off',
     'no-return-assign': 'off',
     'operator-linebreak': ['error', 'before'],
+    'n/no-callback-literal': 'off',
+    'no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
+    'eslint-comments/disable-enable-pair': 'off',
 
     // unicorns
     // Pass error message when throwing errors
@@ -338,10 +302,7 @@ module.exports = {
     // Use new when throwing error
     'unicorn/throw-new-error': 'error',
 
-    /**
-     * import
-     */
-
+    // import
     'import/order': 'error',
     'import/first': 'error',
     'import/no-mutable-exports': 'error',
@@ -350,8 +311,6 @@ module.exports = {
     'import/no-named-as-default-member': 'off',
     'import/no-named-as-default': 'off',
     'import/namespace': 'off',
-    'import/named': 'off',
-    'n/no-callback-literal': 'off',
     'sort-imports': [
       'error',
       {
@@ -363,9 +322,10 @@ module.exports = {
       },
     ],
 
-    // yml
+    /**
+     * yml
+     */
     'yml/quotes': ['error', { prefer: 'single', avoidEscape: false }],
     'yml/no-empty-document': 'off',
-
   },
 }

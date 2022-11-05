@@ -307,7 +307,10 @@ mklink /d .\README.md .\packages\all\README.md
 eslint --print-config file.js > eslintconifg.json
 ```
 ```bash
-eslint --print-config file.js > ./tests/config/js.json
-eslint --print-config file.ts > ./tests/config/ts.json
-eslint --print-config file.vue > ./tests/config/vue.json
+eslint --print-config file.js > ./tests/config/js.json;
+eslint --print-config file.ts > ./tests/config/ts.json;
+eslint --print-config file.md > ./tests/config/md.json;
+eslint --print-config file.yml > ./tests/config/yml.json;
+eslint --print-config file.vue > ./tests/config/vue.json;
+eslint --print-config file.html > ./tests/config/html.json;
 ```

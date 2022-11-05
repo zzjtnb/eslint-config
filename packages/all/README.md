@@ -4,7 +4,7 @@
 
 - Single quotes, no semi
 - Auto fix for formatting (aimed to be used standalone without Prettier)
-- Designed to work with TypeScript, Vue out-of-box
+- Designed to work with TypeScript, JavaScript,Vue out-of-box
 - Lint also for json, yaml, markdown
 - Sorted imports, dangling commas for cleaner commit diff
 - Reasonable defaults, best practices, only one-line of config
@@ -29,17 +29,7 @@ module.exports = {
 }
 ```
 
-For Vue and Typescript:
-
-```js
-module.exports = {
-  extends: [
-    'zzjtnb/vue/ts',
-  ],
-}
-```
-
-For Vue and JavaScript:
+For Vue and Typescript or JavaScript:
 
 ```js
 module.exports = {
@@ -47,7 +37,7 @@ module.exports = {
     'zzjtnb/vue',
   ],
 }
-
+```
 ```
 
 > You don't need `.eslintignore` normally as it has been provided by the preset.
@@ -91,11 +81,9 @@ for js|html|yaml|json|jsonc|md:
 for typescript:
 - `zzjtnb/ts`
 
-for vue js
+For vue and typescript or javaScript:
 - `zzjtnb/vue`
 
-for vue ts
-- `zzjtnb/vue/ts`
 
 for js|html|yaml|json|jsonc|md:
 - `zzjtnb-basic`
@@ -103,8 +91,10 @@ for js|html|yaml|json|jsonc|md:
 for typescript:
 - `zzjtnb-ts`
 
-for vue js
+For vue and typescript or javaScript:
 - `zzjtnb-vue`
+
+
 
 All (`zzjtnb`) includes:
 
@@ -114,9 +104,8 @@ module.exports = {
   extends: [
     'zzjtnb',
     // 'zzjtnb/basic',
-    // "zzjtnb/ts"
+    // 'zzjtnb/ts',
     // 'zzjtnb/vue',
-    // 'zzjtnb/vue/ts',
     // "zzjtnb-basic"
     // "zzjtnb-ts"
     // 'zzjtnb-vue',
@@ -131,7 +120,6 @@ module.exports = {
 - [eslint-config-zzjtnb-vue](https://www.npmjs.com/package/eslint-config-zzjtnb-vue)
 
 - [stylelint-config-zzjtnb](https://www.npmjs.com/package/stylelint-config-zzjtnb)
-
 
 ## License
 
