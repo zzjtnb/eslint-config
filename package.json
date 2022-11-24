@@ -2,7 +2,7 @@
   "name": "eslint-config-zzjtnb-monorepo",
   "version": "0.0.3",
   "private": true,
-  "packageManager": "pnpm@7.15.0",
+  "packageManager": "pnpm@7.17.0",
   "author": "zzjtnb(https://github.com/zzjtnb)",
   "license": "MIT",
   "homepage": "https://github.com/zzjtnb/eslint-config#readme",
