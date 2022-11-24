@@ -125,7 +125,7 @@ dependencies 中的 key 是 packages 文件夹下每个文件夹中的 package.j
 对应 eslint 配置
 
 ```js
-// .eslintrc.cjs
+// .eslintrc.js
 module.exports = {
   extends: [
     '@zzjtnb',
@@ -156,7 +156,7 @@ module.exports = {
 对应 eslint 配置
 
 ```js
-// .eslintrc.cjs
+// .eslintrc.js
 // vue-ts是packages/all下面的文件名,
 // 需要在#packages/all/package.json中的中写入 files:["vue-ts.js"]
 // 不能省略@zzjtnb/eslint-config
@@ -178,7 +178,7 @@ pnpm -r publish --access public
 #### 默认的
 
 ```js
-// .eslintrc.cjs
+// .eslintrc.js
 module.exports = {
   extends: [
     // 对应packages/all/basic|ts|vue/index|vue/ts*.js,写入packages/all/package.json中的files
@@ -253,7 +253,7 @@ module.exports = {
 对应 eslint 配置
 
 ```js
-// .eslintrc.cjs
+// .eslintrc.js
 module.exports = {
   extends: [
     // 对应packages/all/basic|ts|vue/index|vue/ts*.js,写入packages/all/package.json中的files

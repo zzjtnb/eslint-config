@@ -17,7 +17,7 @@
 pnpm add -D eslint eslint-config-zzjtnb
 ```
 
->.eslintrc.cjs
+>.eslintrc.js
 
 For all:
 
@@ -65,7 +65,15 @@ Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?it
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "vue",
+    "html",
+    "markdown",
+    "json"
+  ],
 }
 ```
 

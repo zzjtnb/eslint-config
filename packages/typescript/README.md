@@ -17,7 +17,7 @@ ESLint suggestions configuration aimed to have balanced aspects. A part of [esli
 pnpm add -D eslint-config-zzjtnb-ts
 ```
 
->.eslintrc.cjs
+>.eslintrc.js
 
 ```js
 module.exports = {
@@ -52,7 +52,14 @@ Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?it
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "html",
+    "markdown",
+    "json"
+  ],
 }
 ```
 

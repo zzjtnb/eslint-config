@@ -39,9 +39,9 @@ module.exports = {
     '!.github',
     '!.vitepress',
     '!.vscode',
-    '!.commitlintrc.cjs',
-    '!.stylelintrc.cjs',
-    '!.eslintrc.cjs',
+    '!*.commitlintrc.*',
+    '!*.stylelintrc.*',
+    '!*.eslintrc.*',
   ],
   plugins: [
     'html',
@@ -180,9 +180,9 @@ module.exports = {
     // // 打包时禁止alert
     // 'no-alert': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 
-    'no-debugger': 'error',
-    'no-console': ['error', { allow: ['warn', 'error'] }],
-    'no-alert': 'warn',
+    'no-debugger': 'off',
+    'no-console': 'off',
+    'no-alert': 'off',
 
     // Common
     'semi': ['error', 'never'],
