@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-zzjtnb",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "ESLint configuration aimed to have balanced aspects.",
   "author": "zzjtnb(https://github.com/zzjtnb)",
   "license": "MIT",
