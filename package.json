@@ -25,6 +25,6 @@
     "eslint-config-zzjtnb-basic": "workspace:*",
     "eslint-config-zzjtnb-ts": "workspace:*",
     "eslint-config-zzjtnb-vue": "workspace:*",
-    "rimraf": "^3.0.2"
+    "rimraf": "^5.0.0"
   }
 }
