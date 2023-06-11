@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-zzjtnb-ts",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "ESLint configuration for javascript typescript json html markdown",
   "author": "zzjtnb(https://github.com/zzjtnb)",
   "license": "MIT",
