@@ -14,7 +14,7 @@
   },
   "keywords": [
     "eslint",
-    "eslintconfig"
+    "eslint config"
   ],
   "main": "index.js",
   "files": [

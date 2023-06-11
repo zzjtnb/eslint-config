@@ -63,7 +63,10 @@ Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?it
     "html",
     "vue",
     "markdown",
-    "json"
+    "json",
+    "jsonc",
+    "yaml",
+    "yml"
   ]
 }
 ```

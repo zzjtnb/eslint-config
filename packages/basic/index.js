@@ -241,10 +241,11 @@ module.exports = {
     'quotes': ['error', 'single'],
     'quote-props': ['error', 'consistent-as-needed'],
     'unused-imports/no-unused-imports': 'error',
-    'unused-imports/no-unused-vars': [
-      'warn',
-      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
-    ],
+    // 'unused-imports/no-unused-vars': [
+    //   'warn',
+    //   { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+    // ],
+    'unused-imports/no-unused-vars': 'off',
     'no-param-reassign': 'off',
     'array-bracket-spacing': ['error', 'never'],
     'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],

@@ -14,7 +14,10 @@
     "html",
     "vue",
     "markdown",
-    "json"
+    "json",
+    "jsonc",
+    "yaml",
+    "yml"
   ],
   // specifying which files to validate
   // 指定要验证的文件
