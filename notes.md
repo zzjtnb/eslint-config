@@ -381,3 +381,26 @@ ESLINT_USE_FLAT_CONFIG = true
 在这个示例中，我们将 ESLINT_USE_FLAT_CONFIG 设置为 true，并将其包含在 .env 文件中。请注意，如果你使用 .env 文件来设置环境变量，则需要使用 dotenv 等工具来加载这些变量。
 
 请注意，如果你在配置中使用扁平化的格式，但未将 ESLINT_USE_FLAT_CONFIG 设置为 true，ESLint 将会抛出一个错误。
+
+## 发布包
+
+如果已登录过直接进行第 3 步
+1. 登录
+
+```bash
+npm login
+```
+
+2. 查看当前用户
+
+```bash
+npm whoami
+```
+
+3. 发布
+
+```bash
+# 测试使用
+# pnpm bumpp
+pnpm release
+```
