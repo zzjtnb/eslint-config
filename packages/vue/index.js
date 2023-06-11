@@ -1,10 +1,8 @@
 // console.log('eslint-config-zzjtnb-vue')
-
 const { isPackageExists } = require('local-pkg')
 
 const TS = isPackageExists('typescript')
-if (!TS)
-  console.warn('[zzjtnb/eslint-config] TypeScript is not installed, fallback to JS only.')
+if (!TS) console.warn('[zzjtnb/eslint-config] TypeScript is not installed, fallback to JS only.')
 
 module.exports = {
   overrides: [

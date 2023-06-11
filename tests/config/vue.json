@@ -1,24 +1,20 @@
 {
   "env": {
+    "es6": true,
     "browser": true,
     "node": true,
-    "es2022": true,
-    "es2021": true,
-    "es6": true
+    "es2021": true
   },
   "globals": {
     "document": "readonly",
     "navigator": "readonly",
     "window": "readonly"
   },
-  "parser": "F:\\Office\\GitHub\\eslint-config\\node_modules\\.pnpm\\vue-eslint-parser@9.1.0_eslint@8.26.0\\node_modules\\vue-eslint-parser\\index.js",
+  "parser": "E:\\Office\\GitHub\\eslint-config\\node_modules\\.pnpm\\vue-eslint-parser@9.3.1_eslint@8.42.0\\node_modules\\vue-eslint-parser\\index.js",
   "parserOptions": {
-    "parser": {
-      "js": "espree",
-      "ts": "@typescript-eslint/parser",
-      "<template>": "espree"
-    },
-    "ecmaVersion": 2022,
+    "parser": "@typescript-eslint/parser",
+    "warnOnUnsupportedTypeScriptVersion": false,
+    "ecmaVersion": "latest",
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -34,12 +30,27 @@
     "jsonc",
     "yml",
     "markdown",
-    "no-only-tests",
+    "unused-imports",
     "unicorn",
     "html"
   ],
   "reportUnusedDisableDirectives": true,
   "rules": {
+    "no-unused-vars": [
+      "off",
+      {
+        "args": "none",
+        "caughtErrors": "none",
+        "ignoreRestSiblings": true,
+        "vars": "all"
+      }
+    ],
+    "no-undef": [
+      "off"
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "off"
+    ],
     "vue/max-attributes-per-line": [
       "off"
     ],
@@ -56,6 +67,12 @@
       "off"
     ],
     "vue/prefer-import-from-vue": [
+      "off"
+    ],
+    "vue/no-v-text-v-html-on-component": [
+      "off"
+    ],
+    "vue/no-dupe-keys": [
       "off"
     ],
     "vue/no-setup-props-destructure": [
@@ -94,8 +111,10 @@
       "error",
       {
         "order": [
+          "defineOptions",
           "defineProps",
-          "defineEmits"
+          "defineEmits",
+          "defineSlots"
         ]
       }
     ],
@@ -115,7 +134,7 @@
     "vue/no-useless-v-bind": [
       "error"
     ],
-    "vue/no-v-text-v-html-on-component": [
+    "vue/no-unused-refs": [
       "error"
     ],
     "vue/padding-line-between-blocks": [
@@ -270,41 +289,52 @@
     "vue/template-curly-spacing": [
       "error"
     ],
-    "@typescript-eslint/no-unused-vars": [
-      "off",
-      {
-        "argsIgnorePattern": "^_"
-      }
-    ],
     "import/named": [
       "off"
     ],
-    "no-undef": [
-      "off"
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": "allow-with-description"
+      }
+    ],
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "none"
+        }
+      }
+    ],
+    "@typescript-eslint/type-annotation-spacing": [
+      "error",
+      {}
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports",
+        "disallowTypeAnnotations": false
+      }
+    ],
+    "@typescript-eslint/consistent-type-definitions": [
+      "error",
+      "interface"
+    ],
+    "@typescript-eslint/prefer-ts-expect-error": [
+      "error"
+    ],
+    "@typescript-eslint/no-require-imports": [
+      "error"
     ],
     "no-useless-constructor": [
       "off"
     ],
-    "indent": [
-      "off",
-      2,
-      {
-        "SwitchCase": 1,
-        "VariableDeclarator": 1,
-        "outerIIFEBody": 1,
-        "flatTernaryExpressions": false,
-        "offsetTernaryExpressions": false,
-        "ignoreComments": false
-      }
+    "no-invalid-this": [
+      "off"
     ],
-    "no-unused-vars": [
-      "off",
-      {
-        "args": "none",
-        "caughtErrors": "none",
-        "ignoreRestSiblings": true,
-        "vars": "all"
-      }
+    "@typescript-eslint/no-invalid-this": [
+      "error"
     ],
     "no-redeclare": [
       "off",
@@ -312,8 +342,19 @@
         "builtinGlobals": false
       }
     ],
+    "@typescript-eslint/no-redeclare": [
+      "error"
+    ],
     "no-use-before-define": [
       "off",
+      {
+        "functions": false,
+        "classes": false,
+        "variables": true
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": [
+      "error",
       {
         "functions": false,
         "classes": false,
@@ -327,24 +368,51 @@
         "allowSingleLine": true
       }
     ],
+    "@typescript-eslint/brace-style": [
+      "error",
+      "stroustrup",
+      {
+        "allowSingleLine": true
+      }
+    ],
     "comma-dangle": [
       "off",
+      "always-multiline"
+    ],
+    "@typescript-eslint/comma-dangle": [
+      "error",
       "always-multiline"
     ],
     "object-curly-spacing": [
       "off",
       "always"
     ],
+    "@typescript-eslint/object-curly-spacing": [
+      "error",
+      "always"
+    ],
     "semi": [
       "off",
+      "never"
+    ],
+    "@typescript-eslint/semi": [
+      "error",
       "never"
     ],
     "quotes": [
       "off",
       "single"
     ],
+    "@typescript-eslint/quotes": [
+      "error",
+      "single"
+    ],
     "space-before-blocks": [
       "off",
+      "always"
+    ],
+    "@typescript-eslint/space-before-blocks": [
+      "error",
       "always"
     ],
     "space-before-function-paren": [
@@ -355,11 +423,29 @@
         "asyncArrow": "always"
       }
     ],
+    "@typescript-eslint/space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
     "space-infix-ops": [
       "off"
     ],
+    "@typescript-eslint/space-infix-ops": [
+      "error"
+    ],
     "keyword-spacing": [
       "off",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "@typescript-eslint/keyword-spacing": [
+      "error",
       {
         "before": true,
         "after": true
@@ -372,21 +458,57 @@
         "after": true
       }
     ],
+    "@typescript-eslint/comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
     "no-extra-parens": [
       "off",
+      "functions"
+    ],
+    "@typescript-eslint/no-extra-parens": [
+      "error",
       "functions"
     ],
     "no-dupe-class-members": [
       "off"
     ],
+    "@typescript-eslint/no-dupe-class-members": [
+      "error"
+    ],
     "no-loss-of-precision": [
       "off"
+    ],
+    "@typescript-eslint/no-loss-of-precision": [
+      "error"
     ],
     "lines-between-class-members": [
       "off",
       "always",
       {
         "exceptAfterSingleLine": true
+      }
+    ],
+    "@typescript-eslint/lines-between-class-members": [
+      "error",
+      "always",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ],
+    "indent": [
+      "off",
+      2,
+      {
+        "SwitchCase": 1,
+        "VariableDeclarator": 1,
+        "outerIIFEBody": 1,
+        "flatTernaryExpressions": false,
+        "offsetTernaryExpressions": false,
+        "ignoreComments": false
       }
     ],
     "@typescript-eslint/indent": [
@@ -439,118 +561,6 @@
         "offsetTernaryExpressions": true
       }
     ],
-    "@typescript-eslint/no-redeclare": [
-      "error"
-    ],
-    "@typescript-eslint/no-use-before-define": [
-      "error",
-      {
-        "functions": false,
-        "classes": false,
-        "variables": true
-      }
-    ],
-    "@typescript-eslint/brace-style": [
-      "error",
-      "stroustrup",
-      {
-        "allowSingleLine": true
-      }
-    ],
-    "@typescript-eslint/comma-dangle": [
-      "error",
-      "always-multiline"
-    ],
-    "@typescript-eslint/object-curly-spacing": [
-      "error",
-      "always"
-    ],
-    "@typescript-eslint/semi": [
-      "error",
-      "never"
-    ],
-    "@typescript-eslint/quotes": [
-      "error",
-      "single"
-    ],
-    "@typescript-eslint/space-before-blocks": [
-      "error",
-      "always"
-    ],
-    "@typescript-eslint/space-before-function-paren": [
-      "error",
-      {
-        "anonymous": "always",
-        "named": "never",
-        "asyncArrow": "always"
-      }
-    ],
-    "@typescript-eslint/space-infix-ops": [
-      "error"
-    ],
-    "@typescript-eslint/keyword-spacing": [
-      "error",
-      {
-        "before": true,
-        "after": true
-      }
-    ],
-    "@typescript-eslint/comma-spacing": [
-      "error",
-      {
-        "before": false,
-        "after": true
-      }
-    ],
-    "@typescript-eslint/no-extra-parens": [
-      "error",
-      "functions"
-    ],
-    "@typescript-eslint/no-dupe-class-members": [
-      "error"
-    ],
-    "@typescript-eslint/no-loss-of-precision": [
-      "error"
-    ],
-    "@typescript-eslint/lines-between-class-members": [
-      "error",
-      "always",
-      {
-        "exceptAfterSingleLine": true
-      }
-    ],
-    "@typescript-eslint/ban-ts-comment": [
-      "error",
-      {
-        "ts-ignore": "allow-with-description"
-      }
-    ],
-    "@typescript-eslint/member-delimiter-style": [
-      "error",
-      {
-        "multiline": {
-          "delimiter": "none"
-        }
-      }
-    ],
-    "@typescript-eslint/type-annotation-spacing": [
-      "error",
-      {}
-    ],
-    "@typescript-eslint/consistent-type-imports": [
-      "error",
-      {
-        "prefer": "type-imports",
-        "disallowTypeAnnotations": false
-      }
-    ],
-    "@typescript-eslint/consistent-type-definitions": [
-      "error",
-      "interface"
-    ],
-    "@typescript-eslint/prefer-ts-expect-error": [
-      "error"
-    ],
     "@typescript-eslint/consistent-indexed-object-style": [
       "off"
     ],
@@ -594,19 +604,64 @@
       "off"
     ],
     "no-debugger": [
-      "error"
+      "off"
     ],
     "no-console": [
-      "error",
-      {
-        "allow": [
-          "warn",
-          "error"
-        ]
-      }
+      "off"
     ],
     "no-alert": [
-      "warn"
+      "off"
+    ],
+    "import/order": [
+      "error"
+    ],
+    "import/first": [
+      "error"
+    ],
+    "import/no-mutable-exports": [
+      "error"
+    ],
+    "import/no-unresolved": [
+      "off"
+    ],
+    "import/no-absolute-path": [
+      "off",
+      {
+        "esmodule": true,
+        "commonjs": true,
+        "amd": false
+      }
+    ],
+    "import/no-named-as-default-member": [
+      "off"
+    ],
+    "import/no-named-as-default": [
+      "off"
+    ],
+    "import/namespace": [
+      "off"
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": [
+          "none",
+          "all",
+          "multiple",
+          "single"
+        ],
+        "allowSeparatedGroups": false
+      }
+    ],
+    "import/newline-after-import": [
+      "error",
+      {
+        "count": 1,
+        "considerComments": true
+      }
     ],
     "curly": [
       "error",
@@ -616,6 +671,12 @@
     "quote-props": [
       "error",
       "consistent-as-needed"
+    ],
+    "unused-imports/no-unused-imports": [
+      "error"
+    ],
+    "unused-imports/no-unused-vars": [
+      "off"
     ],
     "no-param-reassign": [
       "off"
@@ -674,12 +735,38 @@
     "no-return-await": [
       "off"
     ],
-    "no-multiple-empty-lines": [
+    "no-restricted-globals": [
       "error",
       {
-        "max": 1,
-        "maxBOF": 0,
-        "maxEOF": 1
+        "name": "global",
+        "message": "Use `globalThis` instead."
+      },
+      {
+        "name": "self",
+        "message": "Use `globalThis` instead."
+      }
+    ],
+    "no-restricted-properties": [
+      "error",
+      {
+        "property": "__proto__",
+        "message": "Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead."
+      },
+      {
+        "property": "__defineGetter__",
+        "message": "Use `Object.defineProperty` instead."
+      },
+      {
+        "property": "__defineSetter__",
+        "message": "Use `Object.defineProperty` instead."
+      },
+      {
+        "property": "__lookupGetter__",
+        "message": "Use `Object.getOwnPropertyDescriptor` instead."
+      },
+      {
+        "property": "__lookupSetter__",
+        "message": "Use `Object.getOwnPropertyDescriptor` instead."
       }
     ],
     "no-var": [
@@ -688,7 +775,7 @@
     "prefer-const": [
       "error",
       {
-        "destructuring": "any",
+        "destructuring": "all",
         "ignoreReadBeforeAssign": true
       }
     ],
@@ -775,8 +862,7 @@
       "off"
     ],
     "complexity": [
-      "off",
-      11
+      "off"
     ],
     "eqeqeq": [
       "error",
@@ -814,10 +900,17 @@
       "error",
       "before"
     ],
-    "n/no-callback-literal": [
-      "off"
+    "max-statements-per-line": [
+      "error",
+      {
+        "max": 1
+      }
     ],
-    "eslint-comments/disable-enable-pair": [
+    "n/prefer-global/buffer": [
+      "error",
+      "never"
+    ],
+    "n/no-callback-literal": [
       "off"
     ],
     "unicorn/error-message": [
@@ -853,49 +946,14 @@
     "unicorn/throw-new-error": [
       "error"
     ],
-    "import/order": [
+    "unicorn/prefer-node-protocol": [
       "error"
     ],
-    "import/first": [
+    "unicorn/prefer-number-properties": [
       "error"
     ],
-    "import/no-mutable-exports": [
-      "error"
-    ],
-    "import/no-unresolved": [
+    "eslint-comments/disable-enable-pair": [
       "off"
-    ],
-    "import/no-absolute-path": [
-      "off",
-      {
-        "esmodule": true,
-        "commonjs": true,
-        "amd": false
-      }
-    ],
-    "import/no-named-as-default-member": [
-      "off"
-    ],
-    "import/no-named-as-default": [
-      "off"
-    ],
-    "import/namespace": [
-      "off"
-    ],
-    "sort-imports": [
-      "error",
-      {
-        "ignoreCase": false,
-        "ignoreDeclarationSort": true,
-        "ignoreMemberSort": false,
-        "memberSyntaxSortOrder": [
-          "none",
-          "all",
-          "multiple",
-          "single"
-        ],
-        "allowSeparatedGroups": false
-      }
     ],
     "yml/quotes": [
       "error",
@@ -1257,6 +1315,14 @@
     ],
     "no-mixed-spaces-and-tabs": [
       "error"
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1,
+        "maxBOF": 0,
+        "maxEOF": 0
+      }
     ],
     "no-new": [
       "error"
@@ -1690,9 +1756,6 @@
     "vue/no-deprecated-vue-config-keycodes": [
       "error"
     ],
-    "vue/no-dupe-keys": [
-      "error"
-    ],
     "vue/no-dupe-v-else-if": [
       "error"
     ],
@@ -1863,10 +1926,12 @@
     "import/resolver": {
       "node": {
         "extensions": [
+          ".js",
+          ".jsx",
+          ".mjs",
           ".ts",
           ".tsx",
-          ".d.ts",
-          ".jsx"
+          ".d.ts"
         ]
       }
     },
@@ -1901,40 +1966,17 @@
     "pnpm-lock.yaml",
     "yarn.lock",
     "__snapshots__",
+    "*.css",
+    "*.png",
+    "*.ico",
+    "*.toml",
+    "*.patch",
+    "*.txt",
+    "*.crt",
+    "*.key",
+    "Dockerfile",
     "!.github",
     "!.vitepress",
-    "!.vscode",
-    "*.min.*",
-    "*.d.ts",
-    "CHANGELOG.md",
-    "dist",
-    "LICENSE*",
-    "output",
-    "coverage",
-    "public",
-    "temp",
-    "package-lock.json",
-    "pnpm-lock.yaml",
-    "yarn.lock",
-    "__snapshots__",
-    "!.github",
-    "!.vitepress",
-    "!.vscode",
-    "*.min.*",
-    "*.d.ts",
-    "CHANGELOG.md",
-    "dist",
-    "LICENSE*",
-    "output",
-    "coverage",
-    "public",
-    "temp",
-    "package-lock.json",
-    "pnpm-lock.yaml",
-    "yarn.lock",
-    "__snapshots__",
-    "!.github",
-    "!.vitepress",
-    "!.vscode"
+    ".vitepress/cache"
   ]
 }

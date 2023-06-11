@@ -20,6 +20,9 @@
   "files": [
     "*.js"
   ],
+  "engines": {
+    "node": "^14.13.1 || >=16.0.0"
+  },
   "peerDependencies": {
     "eslint": ">=7.4.0"
   },

@@ -17,13 +17,34 @@ ESLint suggestions configuration aimed to have balanced aspects. A part of [esli
 pnpm add -D eslint eslint-define-config eslint-config-zzjtnb-ts
 ```
 
+### TypeScript Aware Rules
+
+Type aware rules are enabled when a `tsconfig.json` is found in the project root, which will introduce some stricter rules into your project. If you want to enable it while have no `tsconfig.json` in the project root, you can change tsconfig name by modifying `ESLINT_TSCONFIG` env or creat a `tsconfig.json`.
 >.eslintrc.js
+
+1. found `tsconfig.json`
 
 ```js
 /* eslint-env node */
 // @ts-check
 const { defineConfig } = require('eslint-define-config')
 
+module.exports = defineConfig({
+  root: true,
+  extends: [
+    'zzjtnb-ts',
+  ],
+})
+```
+
+2. change tsconfig name
+
+```js
+/* eslint-env node */
+// @ts-check
+const { defineConfig } = require('eslint-define-config')
+
+process.env.ESLINT_TSCONFIG = 'tsconfig.eslint.json'
 module.exports = defineConfig({
   root: true,
   extends: [

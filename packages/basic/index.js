@@ -184,6 +184,10 @@ module.exports = {
       // Code blocks in markdown file
       files: ['**/*.md/*.*'],
       rules: {
+        'import/no-duplicates': 'off',
+        'import/no-named-default': 'off',
+        'import/no-mutable-exports': 'off',
+
         '@typescript-eslint/no-redeclare': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
@@ -198,7 +202,7 @@ module.exports = {
         'no-alert': 'off',
         'no-console': 'off',
         'no-restricted-imports': 'off',
-        'no-undef': 'off',
+
         'no-unused-expressions': 'off',
         'no-unused-vars': 'off',
         'antfu/no-cjs-exports': 'off',
