@@ -14,33 +14,31 @@
   },
   "keywords": [
     "eslint",
-    "eslintconfig"
+    "eslint config"
   ],
   "main": "index.js",
   "files": [
     "*.js"
   ],
-  "scripts": {
-    "lint": "eslint . --config=index.js --fix"
-  },
   "peerDependencies": {
-    "eslint": "^8.26.0"
+    "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "eslint-config-standard": "^17.0.0",
+    "eslint-config-standard": "^17.1.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-html": "^7.1.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-jsonc": "^2.5.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsonc": "^2.8.0",
     "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-n": "^16.0.0",
-    "eslint-plugin-no-only-tests": "^3.1.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-unicorn": "^47.0.0",
-    "eslint-plugin-yml": "^1.2.0",
-    "yaml-eslint-parser": "^1.1.0"
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "eslint-plugin-yml": "^1.7.0",
+    "jsonc-eslint-parser": "^2.3.0",
+    "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
-    "eslint": "^8.26.0"
+    "eslint": "^8.42.0"
   }
 }

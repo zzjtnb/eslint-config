@@ -1,11 +1,14 @@
 {
   "prettier.enable": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     // 所有可自动修复的 ESlint 错误都将在保存时修复
     "source.fixAll.eslint": true,
+    // 所有可自动修复的 Stylelint 错误都将在保存时修复
+    "source.fixAll.stylelint": true
   },
-  "eslint.validate": [ //包含下方后缀的文件
+  // 包含下方后缀的文件
+  "eslint.validate": [
     "javascript",
     "typescript",
     "html",
@@ -13,4 +16,11 @@
     "markdown",
     "json"
   ],
+  // specifying which files to validate
+  // 指定要验证的文件
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "vue"
+  ]
 }

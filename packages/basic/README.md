@@ -13,17 +13,22 @@ ESLint suggestions configuration aimed to have balanced aspects. A part of [esli
 ### Install
 
 ```bash
-pnpm add -D eslint-config-zzjtnb-basic
+pnpm add -D eslint eslint-define-config eslint-config-zzjtnb-basic
 ```
 
 >.eslintrc.js
 
 ```js
-module.exports = {
+/* eslint-env node */
+// @ts-check
+const { defineConfig } = require('eslint-define-config')
+
+module.exports = defineConfig({
+  root: true,
   extends: [
     'zzjtnb-basic',
   ],
-}
+})
 ```
 
 > You don't need `.eslintignore` normally as it has been provided by the preset.
@@ -48,16 +53,18 @@ Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?it
 ```jsonc
 {
   "prettier.enable": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
   "eslint.validate": [
     "javascript",
+    "typescript",
     "html",
+    "vue",
     "markdown",
     "json"
-  ],
+  ]
 }
 ```
 

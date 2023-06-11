@@ -2,7 +2,7 @@
   "name": "eslint-config-zzjtnb-monorepo",
   "version": "0.0.3",
   "private": true,
-  "packageManager": "pnpm@8.6.1",
+  "packageManager": "pnpm@7.17.0",
   "author": "zzjtnb(https://github.com/zzjtnb)",
   "license": "MIT",
   "homepage": "https://github.com/zzjtnb/eslint-config#readme",
@@ -19,12 +19,14 @@
     "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish "
   },
   "devDependencies": {
-    "bumpp": "^9.0.0",
-    "eslint": "^8.26.0",
+    "bumpp": "^9.1.1",
+    "eslint": "^8.42.0",
     "eslint-config-zzjtnb": "workspace:*",
     "eslint-config-zzjtnb-basic": "workspace:*",
     "eslint-config-zzjtnb-ts": "workspace:*",
     "eslint-config-zzjtnb-vue": "workspace:*",
-    "rimraf": "^5.0.0"
+    "eslint-define-config": "^1.20.0",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.1.3"
   }
 }

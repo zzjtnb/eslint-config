@@ -14,7 +14,7 @@
 ### Install
 
 ```bash
-pnpm add -D eslint eslint-config-zzjtnb
+pnpm add -D eslint eslint-define-config eslint-config-zzjtnb
 ```
 
 >.eslintrc.js
@@ -22,22 +22,31 @@ pnpm add -D eslint eslint-config-zzjtnb
 For all:
 
 ```js
-module.exports = {
+/* eslint-env node */
+// @ts-check
+const { defineConfig } = require('eslint-define-config')
+
+module.exports = defineConfig({
+  root: true,
   extends: [
     'zzjtnb',
   ],
-}
+})
 ```
 
-For Vue and Typescript or JavaScript:
+For JavaScript:
 
 ```js
-module.exports = {
+/* eslint-env node */
+// @ts-check
+const { defineConfig } = require('eslint-define-config')
+
+module.exports = defineConfig({
+  root: true,
   extends: [
-    'zzjtnb/vue',
+    'zzjtnb/basic',
   ],
-}
-```
+})
 ```
 
 > You don't need `.eslintignore` normally as it has been provided by the preset.
@@ -62,18 +71,18 @@ Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?it
 ```jsonc
 {
   "prettier.enable": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
   "eslint.validate": [
     "javascript",
     "typescript",
-    "vue",
     "html",
+    "vue",
     "markdown",
     "json"
-  ],
+  ]
 }
 ```
 
@@ -92,7 +101,6 @@ for typescript:
 For vue and typescript or javaScript:
 - `zzjtnb/vue`
 
-
 for js|html|yaml|json|jsonc|md:
 - `zzjtnb-basic`
 
@@ -102,13 +110,15 @@ for typescript:
 For vue and typescript or javaScript:
 - `zzjtnb-vue`
 
-
-
 All (`zzjtnb`) includes:
 
 ```js
 /* eslint-env node */
-module.exports = {
+// @ts-check
+const { defineConfig } = require('eslint-define-config')
+
+module.exports = defineConfig({
+  root: true,
   extends: [
     'zzjtnb',
     // 'zzjtnb/basic',
@@ -118,7 +128,7 @@ module.exports = {
     // "zzjtnb-ts"
     // 'zzjtnb-vue',
   ],
-}
+})
 ```
 
 ### Related

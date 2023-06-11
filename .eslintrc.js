@@ -1,12 +1,10 @@
 /* eslint-env node */
-module.exports = {
+// @ts-check
+const { defineConfig } = require('eslint-define-config')
+
+module.exports = defineConfig({
+  root: true,
   extends: [
-    'zzjtnb',
-    // 'zzjtnb/basic',
-    // 'zzjtnb/ts',
-    // 'zzjtnb/vue',
-    // "zzjtnb-basic"
-    // "zzjtnb-ts"
-    // 'zzjtnb-vue',
+    'zzjtnb-basic',
   ],
-}
+})

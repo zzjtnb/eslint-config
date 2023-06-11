@@ -6,8 +6,6 @@
 // console.log('zzjtnb/index')
 module.exports = {
   extends: [
-    'eslint-config-zzjtnb-basic',
-    'eslint-config-zzjtnb-ts',
     'eslint-config-zzjtnb-vue',
   ],
 }

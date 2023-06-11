@@ -1,5 +1,5 @@
 <script setup>
-const msg = 'Hello World!'
+const _msg = 'Hello World!'
 </script>
 
 <template>

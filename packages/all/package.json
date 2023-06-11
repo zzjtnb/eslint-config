@@ -35,6 +35,6 @@
     "eslint-config-zzjtnb-vue": "workspace:*"
   },
   "devDependencies": {
-    "eslint": "^8.26.0"
+    "eslint": "^8.42.0"
   }
 }

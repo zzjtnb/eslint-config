@@ -1,27 +1,26 @@
 // console.log('eslint-config-zzjtnb-basic')
 module.exports = {
-  // 报告未使用的 eslint-disable 注释
-  reportUnusedDisableDirectives: true,
   env: {
+    es6: true,
     browser: true,
     node: true,
-    es2022: true,
   },
-  // 默认解释器
-  // parser: 'espree',
+  // parser: 'espree', // 默认解释器
   parserOptions: {
     // 支持的ES语法版本,默认为5.注意只是语法,不包括ES的全局变量,全局变量需要在env选项中进行定义.
-    ecmaVersion: 2022,
-    sourceType: 'module',
+    ecmaVersion: 'latest',
   },
+  // 报告未使用的 eslint-disable 注释
+  reportUnusedDisableDirectives: true,
   extends: [
-    'standard',
+       'standard',
     'plugin:import/recommended',
     'plugin:eslint-comments/recommended',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
     'plugin:markdown/recommended',
   ],
+
   ignorePatterns: [
     '*.min.*',
     '*.d.ts',
@@ -36,17 +35,28 @@ module.exports = {
     'pnpm-lock.yaml',
     'yarn.lock',
     '__snapshots__',
+    // ignore for in lint-staged
+    '*.css',
+    '*.png',
+    '*.ico',
+    '*.toml',
+    '*.patch',
+    '*.txt',
+    '*.crt',
+    '*.key',
+    'Dockerfile',
+    // force include
     '!.github',
     '!.vitepress',
-    '!.vscode',
-    '!*.commitlintrc.*',
-    '!*.stylelintrc.*',
-    '!*.eslintrc.*',
+    // '!.vscode',
+    // force exclude
+    '.vitepress/cache',
+
   ],
   plugins: [
     'html',
     'unicorn',
-    'no-only-tests',
+    'unused-imports',
   ],
   settings: {
     'import/resolver': {
@@ -55,7 +65,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.json', '*.json5'],
+      files: ['*.json', '*.json5', '*.jsonc'],
       parser: 'jsonc-eslint-parser',
       rules: {
         'jsonc/array-bracket-spacing': ['error', 'never'],
@@ -146,50 +156,95 @@ module.exports = {
       },
     },
     {
+      files: ['*.d.ts'],
+      rules: {
+        'import/no-duplicates': 'off',
+      },
+    },
+    {
+      files: ['*.js', '*.cjs', '*.jsx'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-require-imports': 'off',
+      },
+    },
+    {
+      files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
+      rules: {
+        'no-void': ['error', { allowAsStatement: true }],
+      },
+    },
+    {
       files: ['scripts/**/*.*', 'cli.*'],
       rules: {
         'no-console': 'off',
       },
     },
     {
-      files: ['*.test.js', '*.spec.js'],
-      rules: {
-        'no-unused-expressions': 'off',
-        'no-only-tests/no-only-tests': 'error',
-      },
-    },
-    {
       // Code blocks in markdown file
       files: ['**/*.md/*.*'],
       rules: {
+        '@typescript-eslint/no-redeclare': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/no-use-before-define': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/comma-dangle': 'off',
+        '@typescript-eslint/consistent-type-imports': 'off',
+        '@typescript-eslint/no-namespace': 'off',
+        '@typescript-eslint/no-require-imports': 'off',
         'import/no-unresolved': 'off',
+        'unused-imports/no-unused-imports': 'off',
+        'unused-imports/no-unused-vars': 'off',
         'no-alert': 'off',
         'no-console': 'off',
         'no-restricted-imports': 'off',
         'no-undef': 'off',
         'no-unused-expressions': 'off',
         'no-unused-vars': 'off',
+        'antfu/no-cjs-exports': 'off',
+        'antfu/no-ts-export-equal': 'off',
       },
     },
   ],
   rules: {
-    // // 打包时禁止debugger
-    // 'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // // 打包时禁止console
-    // 'no-console': process.env.NODE_ENV === 'production' ? ['error', { allow: ['warn', 'error'] }] : 'off',
-    // // 打包时禁止alert
-    // 'no-alert': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    // 打包时禁止debugger
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // 打包时禁止console
+    'no-console': process.env.NODE_ENV === 'production' ? ['error', { allow: ['warn', 'error'] }] : 'off',
+    // 打包时禁止alert
+    'no-alert': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-unused-vars': 'off',
 
-    'no-debugger': 'off',
-    'no-console': 'off',
-    'no-alert': 'off',
-
+    // import
+    'import/order': 'error',
+    'import/first': 'error',
+    'import/no-mutable-exports': 'error',
+    'import/no-unresolved': 'off',
+    'import/no-absolute-path': 'off',
+    'import/no-named-as-default-member': 'off',
+    'import/no-named-as-default': 'off',
+    'import/namespace': 'off',
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: false,
+        ignoreDeclarationSort: true,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+        allowSeparatedGroups: false,
+      },
+    ],
+    'import/newline-after-import': ['error', { count: 1, considerComments: true }],
     // Common
     'semi': ['error', 'never'],
     'curly': ['error', 'multi-or-nest', 'consistent'],
     'quotes': ['error', 'single'],
     'quote-props': ['error', 'consistent-as-needed'],
-    'no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+    ],
     'no-param-reassign': 'off',
     'array-bracket-spacing': ['error', 'never'],
     'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
@@ -199,8 +254,9 @@ module.exports = {
     'comma-style': ['error', 'last'],
     'comma-dangle': ['error', 'always-multiline'],
     'no-constant-condition': 'warn',
+
     'no-cond-assign': ['error', 'always'],
-    'func-call-spacing': ['off', 'never'],
+    'func-call-spacing': 'off',
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
     'indent': ['error', 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
     'no-restricted-syntax': [
@@ -219,14 +275,25 @@ module.exports = {
         asyncArrow: 'always',
       },
     ],
-    'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 1 }],
-
+    'no-restricted-globals': [
+      'error',
+      { name: 'global', message: 'Use `globalThis` instead.' },
+      { name: 'self', message: 'Use `globalThis` instead.' },
+    ],
+    'no-restricted-properties': [
+      'error',
+      { property: '__proto__', message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.' },
+      { property: '__defineGetter__', message: 'Use `Object.defineProperty` instead.' },
+      { property: '__defineSetter__', message: 'Use `Object.defineProperty` instead.' },
+      { property: '__lookupGetter__', message: 'Use `Object.getOwnPropertyDescriptor` instead.' },
+      { property: '__lookupSetter__', message: 'Use `Object.getOwnPropertyDescriptor` instead.' },
+    ],
     // es6
     'no-var': 'error',
     'prefer-const': [
       'error',
       {
-        destructuring: 'any',
+        destructuring: 'all',
         ignoreReadBeforeAssign: true,
       },
     ],
@@ -263,12 +330,11 @@ module.exports = {
         balanced: true,
       },
     }],
-
     // best-practice
     'array-callback-return': 'error',
     'block-scoped-var': 'error',
     'consistent-return': 'off',
-    'complexity': ['off', 11],
+    'complexity': 'off',
     'eqeqeq': ['error', 'smart'],
     'no-case-declarations': 'error',
     'no-multi-spaces': 'error',
@@ -276,13 +342,17 @@ module.exports = {
     'no-with': 'error',
     'no-void': 'error',
     'no-useless-escape': 'off',
+    'no-invalid-this': 'error',
     'vars-on-top': 'error',
     'require-await': 'off',
     'no-return-assign': 'off',
     'operator-linebreak': ['error', 'before'],
+    'max-statements-per-line': ['error', { max: 1 }],
+
+    // node
+    // 'n/prefer-global/process': ['error', 'never'], // Not sure if we need it as we are using `process.env.NODE_ENV` a lot in front-end.
+    'n/prefer-global/buffer': ['error', 'never'],
     'n/no-callback-literal': 'off',
-    'no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
-    'eslint-comments/disable-enable-pair': 'off',
 
     // unicorns
     // Pass error message when throwing errors
@@ -307,31 +377,17 @@ module.exports = {
     'unicorn/prefer-type-error': 'error',
     // Use new when throwing error
     'unicorn/throw-new-error': 'error',
+    // Prefer using the node: protocol
+    'unicorn/prefer-node-protocol': 'error',
+    // Prefer using number properties like `Number.isNaN` rather than `isNaN`
+    'unicorn/prefer-number-properties': 'error',
 
-    // import
-    'import/order': 'error',
-    'import/first': 'error',
-    'import/no-mutable-exports': 'error',
-    'import/no-unresolved': 'off',
-    'import/no-absolute-path': 'off',
-    'import/no-named-as-default-member': 'off',
-    'import/no-named-as-default': 'off',
-    'import/namespace': 'off',
-    'sort-imports': [
-      'error',
-      {
-        ignoreCase: false,
-        ignoreDeclarationSort: true,
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-        allowSeparatedGroups: false,
-      },
-    ],
+    'no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
+    'eslint-comments/disable-enable-pair': 'off',
 
-    /**
-     * yml
-     */
+    // yml
     'yml/quotes': ['error', { prefer: 'single', avoidEscape: false }],
     'yml/no-empty-document': 'off',
+
   },
 }
